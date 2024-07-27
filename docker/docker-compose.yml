@@ -1,0 +1,17 @@
+services:
+  mysql-db:
+    image: mysql:5.7
+    restart: always
+    platform: linux/amd64
+    environment:
+      MYSQL_ROOT_PASSWORD: blog1!
+      MYSQL_DATABASE: blog-db
+      MYSQL_USER: blog-user
+      MYSQL_PASSWORD: blog1!
+    ports:
+      - "3307:3306" # 호스트의 3307 포트를 컨테이너의 3306 포트로 매핑
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
